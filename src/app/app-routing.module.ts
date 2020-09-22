@@ -7,13 +7,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  // {
-  //   path: 'admin',
-  //   loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
-  // }
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  // { path: 'register', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+  },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  // { path: 'register', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
