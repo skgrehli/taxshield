@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  credentialsKey: "credentialsOfTaxShield",
+  backendUrl: "http://34.194.206.77:8001"
 };
 
 /*

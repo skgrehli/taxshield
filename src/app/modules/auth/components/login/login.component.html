@@ -1,1 +1,71 @@
 <p>login works!</p>
+<form (ngSubmit)="login()" [formGroup]="loginForm" class="cozy" novalidate>
+  <div
+    class="alert alert-danger alert-icon"
+    [hidden]="!error || isLoading"
+  >
+    Username or password incorrect.
+  </div>
+
+  <label class="control-label bold small text-uppercase color-2"
+    >Username</label
+  >
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="username"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'Username'"
+    />
+    <span hidden>Username</span>
+    <small
+      [hidden]="
+        loginForm.controls.username.valid ||
+        loginForm.controls.username.untouched
+      "
+      class="text-danger"
+    >
+      Username is required
+    </small>
+  </div>
+
+  <label class="control-label bold small text-uppercase color-2"
+    >Password</label
+  >
+  <div class="form-group">
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'Password'"
+    />
+    <span hidden>Password</span>
+    <small
+      [hidden]="
+        loginForm.controls.password.valid ||
+        loginForm.controls.password.untouched
+      "
+      class="text-danger"
+    >
+      Password is required
+    </small>
+  </div>
+
+  <div class="form-group d-flex align-items-center justify-content-between">
+    <!-- <a routerLink="/forgot" class="text-warning small"
+    >Forgot your password?</a
+  > -->
+    <div class="ajax-button">
+      <!-- <div class="fas fa-check btn-status text-success success"></div>
+      <div class="fas fa-times btn-status text-danger failed"></div> -->
+      <button
+        type="submit"
+        class="btn btn-accent btn-rounded btn-primary"
+        [disabled]="loginForm.invalid || isLoading"
+      >
+        <span>Login</span>
+        <i class="fas fa-long-arrow-alt-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</form>
