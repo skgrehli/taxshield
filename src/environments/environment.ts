@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   credentialsKey: "credentialsOfTaxShield",
-  backendUrl: "http://34.194.206.77:8001"
+  backendUrl: "http://34.194.206.77:8001/api"
 };
 
 /*

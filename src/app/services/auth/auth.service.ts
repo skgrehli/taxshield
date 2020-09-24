@@ -36,11 +36,16 @@ export class AuthService {
   }
 
   login(context: LoginContext): Observable<any> {
-    let formData: FormData = new FormData();
-    formData.append('email', context.username);
-    formData.append('password', context.password);
+    // let formData: FormData = new FormData();
+    // formData.append('email', context.username);
+    // formData.append('password', context.password);
 
-    return this.http.post(`${environment.backendUrl}/auth/login/`, formData);
+    let body = {
+      username: context.username,
+      password: context.password
+    }
+
+    return this.http.post(`${environment.backendUrl}/auth`, body);
   }
 
   logout(): Observable<boolean> {
