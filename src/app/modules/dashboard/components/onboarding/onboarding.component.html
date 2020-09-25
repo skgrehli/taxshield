@@ -1,5 +1,5 @@
-<p>onboarding works!</p>
-<mat-horizontal-stepper
+
+<mat-vertical-stepper
   class="m-4 -text-secondary"
   #stepper
   [linear]="isLinear"
@@ -7,17 +7,24 @@
 >
   <ng-template matStepperIcon="edit" let-index="index">
     <!-- {{ index + 1 }} -->
-     <i class="fa fa-check"></i>
+    <i class="fa fa-check"></i>
   </ng-template>
 
   <!-- Define the number of the step -->
-  <!-- <ng-template matStepperIcon="number" let-index="index">
+  <ng-template matStepperIcon="number" let-index="index">
     {{ index + 1 }}
-  </ng-template> -->
+  </ng-template>
 
-  <mat-step label="Step 1"></mat-step>
-  <mat-step label="Step 2"></mat-step>
-  <mat-step label="Step 3"></mat-step>
-  <mat-step label="Step 4"></mat-step>
-  <mat-step label="Step 5"></mat-step>
-</mat-horizontal-stepper>
+
+  <mat-step label="Step 1" [completed]="stepsCompletion[0]"> Its step 1 </mat-step>
+  <mat-step label="Step 2" [completed]="stepsCompletion[1]"> Its step 2 </mat-step>
+  <mat-step label="Step 2" [completed]="stepsCompletion[2]"> Its step 3 </mat-step>
+  <mat-step [completed]="stepsCompletion[3]">
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
