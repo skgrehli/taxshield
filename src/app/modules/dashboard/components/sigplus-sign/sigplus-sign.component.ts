@@ -18,7 +18,7 @@ export class SigplusSignComponent implements OnInit {
 
   onSignClick() {
     var SigPlus1: any = document.getElementById('SigPlus1');
-    console.log('clear', this.Disclaimer);
+    // console.log('clear', this.Disclaimer);
     SigPlus1.TabletState = 1;
   }
 
