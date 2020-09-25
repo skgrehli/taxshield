@@ -1,0 +1,90 @@
+<a>
+  <FONT COLOR="#666699"
+    ><h2>Demo:<br />Sign & Submit</h2></FONT
+  >
+</a>
+<form>
+  <div STYLE="position:absolute; top:60px; left:10px;">
+    <br /><br /><b
+      >Please provide your first name below and press the SIGN button to sign.
+      When submitted, your first name and the disclaimer information will be
+      used to encrypt the e-signature. You will need to provide your first name
+      again on the next page to retrieve the signature.</b
+    ><br /><br />
+
+    <br />The following is nonsense disclaimer information:
+    <input
+      TYPE="TEXT"
+      SIZE="117"
+      NAME="Disclaimer"
+      [(ngModel)]="Disclaimer" [ngModelOptions]="{standalone: true}"
+      onChange="this.value='Signing to this form is for example purposes only and authorizes no agreement whatsoever between signer and Company';"
+      readonly
+    /><br /><br />
+
+    <br />Please enter your first name here:<br />
+    <input
+      type="text"
+      [(ngModel)]="txtValue" [ngModelOptions]="{standalone: true}"
+    /><br /><br /><br /><br /><br /><br /><br />
+
+    <input
+      id="SignBtn"
+      name="SignBtn"
+      type="button"
+      value="Sign"
+      language="VBScript"
+      (click)="onSignClick()"
+      style="background-color: #666699; color: white; font: bold 8pt verdana"
+      onmouseout="window.event.srcElement.style.background = '#666699'"
+      onmouseover="window.event.srcElement.style.background = '#AFAFAF'"
+    />&nbsp;&nbsp;
+    <input
+      id="button1"
+      name="ClearBtn"
+      type="button"
+      value="Clear"
+      language="VBScript"
+      (click)="OnClear()"
+      style="background-color: #666699; color: white; font: bold 8pt verdana"
+      onmouseout="window.event.srcElement.style.background = '#666699'"
+      onmouseover="window.event.srcElement.style.background = '#AFAFAF'"
+    /><br /><br />
+    <input type="hidden" name="SigData" [(ngModel)]="SigData" [ngModelOptions]="{standalone: true}" />
+    <input
+      TYPE="BUTTON"
+      VALUE="Submit"
+      (click)="submitSignature()"
+      style="background-color: #666699; color: white; font: bold 8pt verdana"
+      onmouseout="window.event.srcElement.style.background = '#666699'"
+      onmouseover="window.event.srcElement.style.background = '#AFAFAF'"
+    />&nbsp;
+  </div>
+
+  <!-- <button type="submit">
+        Submit
+    </button> -->
+</form>
+
+<div STYLE="position:absolute; top:270px; left:350px;">
+  <table border="2" cellpadding="0">
+    <tr>
+      <td>
+        <!-- #SigPlus1 -->
+        <object
+          classid="clsid:69A40DA3-4D42-11D0-86B0-0000C025864A"
+          id="SigPlus1"
+          height="75"
+          name="SigPlus1"
+          style="height: 180px; width: 320px; left: 0px; top: 0px"
+          VIEWASTEXT
+        >
+          <param name="_Version" value="131095" />
+          <param name="_ExtentX" value="4842" />
+          <param name="_ExtentY" value="1323" />
+          <param name="_StockProps" value="0" />
+        </object>
+      </td>
+    </tr>
+  </table>
+</div>

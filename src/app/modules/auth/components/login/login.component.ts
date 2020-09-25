@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         );
         this.route.queryParams.subscribe(params =>
           // this.router.navigate([params.redirect || '/'], { replaceUrl: true })
-          this.router.navigate(['/marketingreports'], { replaceUrl: true })
+          this.router.navigate(['/sigplus-sign'], { replaceUrl: true })
         );
       }
     )
