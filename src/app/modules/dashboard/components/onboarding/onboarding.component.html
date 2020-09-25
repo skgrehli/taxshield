@@ -1,0 +1,23 @@
+<p>onboarding works!</p>
+<mat-horizontal-stepper
+  class="m-4 -text-secondary"
+  #stepper
+  [linear]="isLinear"
+  [selectedIndex]="currentStep"
+>
+  <ng-template matStepperIcon="edit" let-index="index">
+    <!-- {{ index + 1 }} -->
+     <i class="fa fa-check"></i>
+  </ng-template>
+
+  <!-- Define the number of the step -->
+  <!-- <ng-template matStepperIcon="number" let-index="index">
+    {{ index + 1 }}
+  </ng-template> -->
+
+  <mat-step label="Step 1"></mat-step>
+  <mat-step label="Step 2"></mat-step>
+  <mat-step label="Step 3"></mat-step>
+  <mat-step label="Step 4"></mat-step>
+  <mat-step label="Step 5"></mat-step>
+</mat-horizontal-stepper>

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MarketingreportsComponent } from './components/marketingreports/marketingreports.component';
 import { MainComponent } from './components/main/main.component';
 import { SigplusSignComponent } from './components/sigplus-sign/sigplus-sign.component';
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'sigplus-sign',
         component: SigplusSignComponent,
+      },
+      {
+        path: 'onboarding',
+        component: OnboardingComponent,
       },
       { path: '', redirectTo: 'sigplus-sign' },
       { path: '**', redirectTo: 'sigplus-sign' },
