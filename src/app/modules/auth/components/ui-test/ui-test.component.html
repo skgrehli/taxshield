@@ -8,7 +8,10 @@
     >
       <div class="row">
         <!-- todo: register validations error -->
-        <div class="form-container sign-up-container custom-form" [formGroup]="registerForm">
+        <div
+          class="form-container sign-up-container custom-form"
+          [formGroup]="registerForm"
+        >
           <div class="h-100" style="display: flex">
             <div class="my-auto">
               <div class="w-100 mx-auto">
@@ -39,6 +42,15 @@
                                 required=""
                               />
                             </div>
+                            <small
+                              [hidden]="
+                                registerForm.controls.firstname.valid ||
+                                registerForm.controls.firstname.untouched
+                              "
+                              class="text-danger"
+                            >
+                              First Name is required
+                            </small>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="inputbox">
@@ -49,6 +61,15 @@
                                 required=""
                               />
                             </div>
+                            <small
+                              [hidden]="
+                                registerForm.controls.lastname.valid ||
+                                registerForm.controls.lastname.untouched
+                              "
+                              class="text-danger"
+                            >
+                              Last Name is required
+                            </small>
                           </div>
                         </div>
                         <div class="col-12 row">
@@ -61,11 +82,33 @@
                                 required=""
                               />
                             </div>
+                            <small
+                              [hidden]="
+                                registerForm.controls.email.valid ||
+                                registerForm.controls.email.untouched
+                              "
+                              class="text-danger"
+                            >
+                              Email is required
+                            </small>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="inputbox">
-                              <input type="text" formControlName="phone" required="" />
+                              <input
+                                type="text"
+                                formControlName="phone"
+                                required=""
+                              />
                             </div>
+                            <small
+                              [hidden]="
+                                registerForm.controls.phone.valid ||
+                                registerForm.controls.phone.untouched
+                              "
+                              class="text-danger"
+                            >
+                              Phone is required
+                            </small>
                           </div>
                         </div>
                         <div class="col-12 row">
@@ -79,6 +122,15 @@
                                 required=""
                               />
                             </div>
+                            <small
+                              [hidden]="
+                                registerForm.controls.password.valid ||
+                                registerForm.controls.password.untouched
+                              "
+                              class="text-danger"
+                            >
+                              Password is required
+                            </small>
                           </div>
                           <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="inputbox">
@@ -90,6 +142,15 @@
                                 required=""
                               />
                             </div>
+                            <small
+                              [hidden]="
+                                registerForm.controls.confirmpassword.valid ||
+                                registerForm.controls.confirmpassword.untouched
+                              "
+                              class="text-danger"
+                            >
+                              Confirm Password is required
+                            </small>
                           </div>
                         </div>
                         <div class="col-12">

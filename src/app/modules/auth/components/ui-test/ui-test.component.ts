@@ -44,6 +44,9 @@ export class UiTestComponent implements OnInit {
   }
 
   login() {
+    if(!this.loginForm.valid){
+      return;
+    }
     console.log('log in');
     this.isLoading = true;
     this.authenticationService
@@ -82,6 +85,9 @@ export class UiTestComponent implements OnInit {
   }
 
   register() {
+    if(!this.registerForm.valid){
+      return;
+    }
     this.isLoading = true;
     this.authenticationService
       .register(this.registerForm.value)
