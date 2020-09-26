@@ -1,0 +1,149 @@
+<p>signup works!</p>
+<form
+  (ngSubmit)="register()"
+  [formGroup]="registerForm"
+  class="cozy"
+  novalidate
+>
+  <label class="control-label bold small text-uppercase color-2"
+    >First Name</label
+  >
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="firstname"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'First Name'"
+    />
+    <span hidden>firstname</span>
+    <small
+      [hidden]="
+        registerForm.controls.firstname.valid ||
+        registerForm.controls.firstname.untouched
+      "
+      class="text-danger"
+    >
+      firstname is required
+    </small>
+  </div>
+  <label class="control-label bold small text-uppercase color-2">lastname</label>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="lastname"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'lastname'"
+    />
+    <span hidden>lastname</span>
+    <small
+      [hidden]="
+        registerForm.controls.lastname.valid ||
+        registerForm.controls.lastname.untouched
+      "
+      class="text-danger"
+    >
+      lastname is required
+    </small>
+  </div>
+
+  <label class="control-label bold small text-uppercase color-2">email</label>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'email'"
+    />
+    <span hidden>email</span>
+    <small
+      [hidden]="
+        registerForm.controls.email.valid ||
+        registerForm.controls.email.untouched
+      "
+      class="text-danger"
+    >
+      email is required
+    </small>
+  </div>
+
+  <label class="control-label bold small text-uppercase color-2">phone</label>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="phone"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'phone'"
+    />
+    <span hidden>phone</span>
+    <small
+      [hidden]="
+        registerForm.controls.phone.valid ||
+        registerForm.controls.phone.untouched
+      "
+      class="text-danger"
+    >
+      phone is required
+    </small>
+  </div>
+
+  <label class="control-label bold small text-uppercase color-2">password</label>
+  <div class="form-group">
+    <input
+      type="text"
+      formControlName="password"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'password'"
+    />
+    <span hidden>password</span>
+    <small
+      [hidden]="
+        registerForm.controls.password.valid ||
+        registerForm.controls.password.untouched
+      "
+      class="text-danger"
+    >
+      password is required
+    </small>
+  </div>
+
+  <label class="control-label bold small text-uppercase color-2"
+    >confirmpassword</label
+  >
+  <div class="form-group">
+    <input
+      type="confirmpassword"
+      formControlName="confirmpassword"
+      class="form-control bg-6 form-control-rounded"
+      [placeholder]="'confirmpassword'"
+    />
+    <span hidden>confirmpassword</span>
+    <small
+      [hidden]="
+        registerForm.controls.confirmpassword.valid ||
+        registerForm.controls.confirmpassword.untouched
+      "
+      class="text-danger"
+    >
+      confirmpassword is required
+    </small>
+  </div>
+
+  <div class="form-group d-flex align-items-center justify-content-between">
+    <!-- <a routerLink="/forgot" class="text-warning small"
+    >Forgot your password?</a
+  > -->
+    <div class="ajax-button">
+      <!-- <div class="fas fa-check btn-status text-success success"></div>
+      <div class="fas fa-times btn-status text-danger failed"></div> -->
+      <button
+        type="submit"
+        class="btn btn-accent btn-rounded btn-primary"
+        [disabled]="registerForm.invalid || isLoading"
+      >
+        <span>Register</span>
+        <i class="fas fa-long-arrow-alt-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<a routerLink="/auth/login" class="accent bold">Login here</a>

@@ -15,7 +15,7 @@ export class MarketingreportsComponent implements OnInit {
   logout() {
     this.authService
       .logout()
-      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+      .subscribe(() => this.router.navigate(['/auth'], { replaceUrl: true }));
   }
 
 }
