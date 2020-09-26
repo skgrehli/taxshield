@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UiTestComponent } from './components/ui-test/ui-test.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,11 @@ const routes: Routes = [
     path: 'register',
     component: SignupComponent,
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'ui',
+    component: UiTestComponent,
+  },
+  { path: '', redirectTo: 'ui', pathMatch: 'full' },
   { path: '**', redirectTo: '' },
 ];
 
