@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
+// todo: add https://www.npmjs.com/package/ngx-logger (Logger) for success / failed api response.
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
