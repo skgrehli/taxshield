@@ -41,6 +41,7 @@
                                 placeholder="First Name"
                                 required=""
                               />
+                              <span><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
                             </div>
                             <small
                               [hidden]="
@@ -60,6 +61,7 @@
                                 placeholder="Last Name"
                                 required=""
                               />
+                              <span><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
                             </div>
                             <small
                               [hidden]="
@@ -81,6 +83,7 @@
                                 placeholder="Email"
                                 required=""
                               />
+                              <span><i class="fa fa-2x fa-envelope-o" aria-hidden="true"></i></span>
                             </div>
                             <small
                               [hidden]="
@@ -99,6 +102,7 @@
                                 formControlName="phone"
                                 required=""
                               />
+                              <span><i class="fa fa-2x fa-phone" aria-hidden="true"></i></span>
                             </div>
                             <small
                               [hidden]="
@@ -121,6 +125,7 @@
                                 placeholder="Password"
                                 required=""
                               />
+                              <span><i class="fa fa-2x fa-lock" aria-hidden="true"></i></span>
                             </div>
                             <small
                               [hidden]="
@@ -141,6 +146,7 @@
                                 placeholder="Confirm Password"
                                 required=""
                               />
+                              <span><i class="fa fa-2x fa-lock" aria-hidden="true"></i></span>
                             </div>
                             <small
                               [hidden]="
@@ -219,7 +225,7 @@
                       <h4>Sign into your taxshield account</h4>
                       <p>Fill in your credentials to get started now</p>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 mx-auto">
                       <div class="inputbox">
                         <input
                           type="text"
@@ -227,9 +233,10 @@
                           formControlName="username"
                           placeholder="Email Address"
                         />
+                        <span><i class="fa fa-2x fa-2x fa-envelope-o" aria-hidden="true"></i></span>
                       </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-left">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 mx-auto text-left">
                       <small
                         [hidden]="
                           loginForm.controls.username.valid ||
@@ -240,7 +247,7 @@
                         Username is required
                       </small>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 mx-auto">
                       <div class="inputbox">
                         <input
                           type="password"
@@ -248,9 +255,10 @@
                           formControlName="password"
                           placeholder="Password"
                         />
+                        <span><i class="fa fa-2x fa-2x fa-lock" aria-hidden="true"></i></span>
                       </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-left">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 mx-auto text-left">
                       <small
                         [hidden]="
                           loginForm.controls.password.valid ||
@@ -261,7 +269,7 @@
                         Password is required
                       </small>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 text-left">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 mx-auto text-left">
                       <a href="#/forgot" class="forgotpw">Forgot password?</a>
                       <div class="inputbox">
                         <button
