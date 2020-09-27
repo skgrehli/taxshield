@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -22,7 +23,8 @@ export class UiTestComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private authenticationService: AuthService
+    private authenticationService: AuthService,
+    private notifyService : NotificationService
   ) {
     this.initializeLoginForm();
     this.initializeRegisterForm();
@@ -44,6 +46,7 @@ export class UiTestComponent implements OnInit {
   }
 
   login() {
+    // this.notifyService.showSuccess( "User", "Welcome")
     if(!this.loginForm.valid){
       return;
     }
@@ -59,7 +62,7 @@ export class UiTestComponent implements OnInit {
       )
       .subscribe((credentials) => {
         console.log('credentials', credentials);
-
+        this.notifyService.showSuccess( "User", "Welcome")
         this.authenticationService.loginSuccess(
           this.loginForm.value,
           credentials.token
@@ -68,6 +71,10 @@ export class UiTestComponent implements OnInit {
           // this.router.navigate([params.redirect || '/'], { replaceUrl: true })
           this.router.navigate(['/sigplus-sign'], { replaceUrl: true })
         );
+      },(error)=>{
+        console.log('error', error);
+        
+        this.notifyService.showError( error.error.error, "Login")
       });
   }
 
@@ -112,7 +119,7 @@ export class UiTestComponent implements OnInit {
       )
       .subscribe((credentials) => {
         console.log('credentials', credentials);
-
+        this.notifyService.showSuccess( "User", "Welcome")
         this.authenticationService.registerSuccess(
           this.registerForm.value,
           credentials.token
@@ -121,6 +128,8 @@ export class UiTestComponent implements OnInit {
           // this.router.navigate([params.redirect || '/'], { replaceUrl: true })
           this.router.navigate(['/sigplus-sign'], { replaceUrl: true })
         );
+      }, (error)=>{
+        this.notifyService.showError( error.error.error, "Register")
       });
   }
 

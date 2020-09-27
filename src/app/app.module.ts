@@ -4,6 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+// for HttpClient import:
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
+// for Router import:
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+
+// for Core import:
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 @NgModule({
   declarations: [
@@ -13,7 +23,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
+    LoadingBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

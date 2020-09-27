@@ -12,10 +12,4 @@ export class MarketingreportsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logout() {
-    this.authService
-      .logout()
-      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
-  }
-
 }
