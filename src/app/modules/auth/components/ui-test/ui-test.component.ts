@@ -74,12 +74,12 @@ export class UiTestComponent implements OnInit {
   initializeRegisterForm() {
     this.registerForm = this.formBuilder.group({
       confirmpassword: ['', [Validators.required, this.passwordValidator]],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, this.emailDomainValidator]],
       firstname: ['', Validators.required],
       it: [''],
       lastname: ['', Validators.required],
       password: ['', [Validators.required, this.passwordValidator]],
-      phone: ['', Validators.required],
+      phone: ['', [Validators.required, this.phoneNumberValidator]],
       role: [''],
       agreeToTerms: [false, this.agreeToTermsValidator],
     });
@@ -137,6 +137,22 @@ export class UiTestComponent implements OnInit {
       return null;
     }
     return { passwordValidator: true };
+  }
+
+  emailDomainValidator(control: AbstractControl) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (control.value.match(mailformat)) {
+      return null;
+    }
+    return { emailDomainValidator: true };
+  }
+
+  phoneNumberValidator(control: AbstractControl) {
+    var mailformat = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+    if (control.value.match(mailformat)) {
+      return null;
+    }
+    return { emailDomainValidator: true };
   }
   
 }
