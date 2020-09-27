@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService
       .logout()
-      .subscribe(() => this.router.navigate(['/auth'], { replaceUrl: true }));
+      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
 }

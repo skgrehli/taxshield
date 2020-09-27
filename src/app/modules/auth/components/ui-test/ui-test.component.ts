@@ -148,11 +148,11 @@ export class UiTestComponent implements OnInit {
   }
 
   phoneNumberValidator(control: AbstractControl) {
-    var mailformat = /^(\+\d{1,3}[- ]?)?\d{10}$/;
-    if (control.value.match(mailformat)) {
+    var phoneformat = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+    if (control.value.match(phoneformat)) {
       return null;
     }
-    return { emailDomainValidator: true };
+    return { phoneNumberValidator: true };
   }
   
 }

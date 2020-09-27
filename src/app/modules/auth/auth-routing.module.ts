@@ -5,19 +5,19 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UiTestComponent } from './components/ui-test/ui-test.component';
 
 const routes: Routes = [
+  // {
+  //   path: 'login',
+  //   component: LoginComponent,
+  // },
+  // {
+  //   path: 'register',
+  //   component: SignupComponent,
+  // },
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'register',
-    component: SignupComponent,
-  },
-  {
-    path: 'ui',
+    path: '',
     component: UiTestComponent,
   },
-  { path: '', redirectTo: 'ui', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' },
 ];
 
