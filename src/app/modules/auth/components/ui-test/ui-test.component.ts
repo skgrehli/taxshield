@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { finalize } from 'rxjs/operators';
@@ -73,24 +73,37 @@ export class UiTestComponent implements OnInit {
 
   initializeRegisterForm() {
     this.registerForm = this.formBuilder.group({
-      confirmpassword: ['', Validators.required],
+      confirmpassword: ['', [Validators.required, this.passwordValidator]],
       email: ['', Validators.required],
       firstname: ['', Validators.required],
       it: [''],
       lastname: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, this.passwordValidator]],
       phone: ['', Validators.required],
       role: [''],
+      agreeToTerms: [false, this.agreeToTermsValidator],
     });
   }
 
   register() {
+    if(this.registerForm.value.password !== this.registerForm.value.confirmpassword){
+      this.registerForm.controls['confirmpassword'].setErrors({error: "Password doesnt match"})
+      console.log('1');
+      
+    }else{
+      console.log('2');
+      this.registerForm.controls['confirmpassword'].setErrors(null)
+    }
     if(!this.registerForm.valid){
       return;
     }
+
+    let value = this.registerForm.value;
+    delete value['agreeToTerms']
+
     this.isLoading = true;
     this.authenticationService
-      .register(this.registerForm.value)
+      .register(value)
       .pipe(
         finalize(() => {
           this.registerForm.markAsPristine();
@@ -110,4 +123,20 @@ export class UiTestComponent implements OnInit {
         );
       });
   }
+
+  agreeToTermsValidator(control: AbstractControl) {
+    if (control.value) {
+      return null;
+    }
+    return { customValidator: true };
+  }
+
+  passwordValidator(control: AbstractControl) {
+    var passwordformat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$/;
+    if (control.value.match(passwordformat)) {
+      return null;
+    }
+    return { passwordValidator: true };
+  }
+  
 }
