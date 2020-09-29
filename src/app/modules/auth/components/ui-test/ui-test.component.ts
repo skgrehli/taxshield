@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 import { finalize } from 'rxjs/operators';
 
+// AngularJs => loginController.coffee
+
 @Component({
   selector: 'app-ui-test',
   templateUrl: './ui-test.component.html',

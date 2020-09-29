@@ -10,8 +10,25 @@ import { FormsModule } from '@angular/forms';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { MatStepperModule } from '@angular/material/stepper';
 
+
+
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 @NgModule({
   declarations: [MarketingreportsComponent, MainComponent, NavbarComponent, SigplusSignComponent, OnboardingComponent],
-  imports: [CommonModule, DashboardRoutingModule, FormsModule, MatStepperModule],
+  imports: [CommonModule, DashboardRoutingModule, FormsModule, MatStepperModule,
+    MatStepperModule,
+    
+    MatGridListModule,
+    
+    MatListModule,
+    
+    MatSidenavModule,
+    
+    MatToolbarModule,
+    ],
 })
 export class DashboardModule {}
