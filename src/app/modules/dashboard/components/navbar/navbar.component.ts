@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 10}, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = Array.from({length: 15}, (_, i) => `Nav Item ${i + 1}`);
 
   fillerContent = Array.from({length: 50}, () =>
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

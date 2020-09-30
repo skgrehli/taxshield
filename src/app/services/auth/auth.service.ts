@@ -128,6 +128,9 @@ export class AuthService {
   }
 
   returnToken() {
-    return this._credentials.token;
+    if(this._credentials && this._credentials.token){
+      return this._credentials.token;
+    }
+    return '';
   }
 }

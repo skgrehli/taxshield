@@ -14,6 +14,16 @@ body {
   margin: 8px;
 }
 
+.mat-drawer-inner-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: grey;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar-thumb { 
+  background: rgba(0,0,0,0.47); 
+} 
 
 /**  Copyright 2020 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that

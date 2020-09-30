@@ -32,4 +32,95 @@ h1.example-app-name {
 
 .mat-drawer {
   width: 260px;
+  background: #474747;
+}
+
+.brand-logo {
+  min-height: 64px;
+  color: #E7E7E7;
+  line-height: 64px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+
+
+#logo {
+  display: inline-block;
+  position: relative;
+  height: 19px;
+}
+
+.md {
+  line-height: inherit;
+  vertical-align: bottom;
+}
+
+// .content {
+//   display: table-cell;
+//   vertical-align: middle;
+//   padding:0 22px;
+//   text-transform: uppercase;
+
+//   .user-name {
+//     font-size: 16px;
+//     line-height: 18px;
+//   }
+//   .user-email {
+//     font-size: 13px;
+//     color: #999;
+//     line-height: 15px;
+//   }
+//   .user-actions {
+//     margin-top:7px;
+//     font-size:10px;
+//   }
+// }
+.user-logged-in {
+  color: #FFF;
+  min-height:100px;
+  position:relative;
+  display: table;
+  width: 100%;
+  // @include box-shadow(inset 0px 0px 2px rgba(0, 0, 0, 0.1));
+
+  .content {
+    display: table-cell;
+    vertical-align: middle;
+    padding:0 22px;
+    text-transform: uppercase;
+
+    .user-name {
+      font-size: 16px;
+      line-height: 18px;
+    }
+    .user-email {
+      font-size: 13px;
+      color: #999;
+      line-height: 15px;
+    }
+    .user-actions {
+      margin-top:7px;
+      font-size:10px;
+      color: #90CAF9
+    }
+  }
+}
+.user-logged-in:after {
+  content: "";
+  background: url("../../../../../assets/images/user-bg.png");
+  background-size: cover;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.f9 {
+  font-size: 9px;
 }
