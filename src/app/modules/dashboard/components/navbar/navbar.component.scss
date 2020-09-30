@@ -124,3 +124,7 @@ h1.example-app-name {
 .f9 {
   font-size: 9px;
 }
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
+  background: #474747;
+}

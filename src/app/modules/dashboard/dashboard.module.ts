@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
 
     MatToolbarModule,
+    MatExpansionModule
   ],
 })
 export class DashboardModule {}
