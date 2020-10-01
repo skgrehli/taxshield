@@ -128,3 +128,8 @@ h1.example-app-name {
 .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
   background: #474747;
 }
+
+
+::ng-deep .mat-expansion-indicator:after {
+  color: #66BB6A;
+}

@@ -49,37 +49,95 @@
                 <path d="M0 0h24v24H0z" fill="none" />
                 <path
                   d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
-                /></svg>
-              </i>
+                />
+              </svg>
+            </i>
           </div>
           TaxShield
         </div>
-        <div class="user-logged-in" data-intro="This is where you can reach your profile and logout" data-position="right">
-          <div class="content" >
-            <div class="user-name">Vivek Thakkar <span class="text-muted f9">ADMIN</span></div>
+        <div
+          class="user-logged-in"
+          data-intro="This is where you can reach your profile and logout"
+          data-position="right"
+        >
+          <div class="content">
+            <div class="user-name">
+              Vivek Thakkar <span class="text-muted f9">ADMIN</span>
+            </div>
             <div class="user-email">Vivek</div>
             <div class="user-actions">
-              <a class="m-r-5" href="" >profile</a> <a href="" ng-click="main.logout()">logout</a>
+              <a class="mr-2" href="">profile</a>
+              <a href="" (click)="logout()">logout</a>
             </div>
           </div>
         </div>
-        <mat-accordion style="color: rgb(231, 231, 231);">
-          <mat-expansion-panel mat-list-item style="background: #474747; color: rgb(231, 231, 231); box-shadow: none">
-            <mat-expansion-panel-header>
+
+        <!-- nav list -->
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-home mr-2" style="font-size: 24px"></i>Dashboard</a
+        >
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-phone mr-2" style="font-size: 24px"></i>Call Log</a
+        >
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-comments mr-2" style="font-size: 24px"></i>Text Log</a
+        >
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-phone mr-2" style="font-size: 24px"></i>My Numbers</a
+        >
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-comments mr-2" style="font-size: 24px"></i>Text</a
+        >
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-globe mr-2" style="font-size: 24px"></i>Geo Router</a
+        >
+
+        <mat-accordion style="color: rgb(231, 231, 231)">
+          <mat-expansion-panel
+            mat-list-item
+            style="
+              background: #474747;
+              color: rgb(231, 231, 231);
+              box-shadow: none;
+            "
+          >
+            <mat-expansion-panel-header mat-list-item>
               <mat-panel-title style="color: white" class="align-items-center">
-                <i class="fa fa-home mr-2" style="font-size: 24px;"></i>Dashboard
+                <i class="fa fa-line-chart mr-2" style="font-size: 24px"></i>Reports
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <p>This is the dashboard panel.</p>
+            
+            <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-line-chart mr-2" style="font-size: 24px"></i>Reports</a
+        >
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-line-chart mr-2" style="font-size: 24px"></i>Marketing</a
+        >
+
           </mat-expansion-panel>
         </mat-accordion>
-        <a
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-building-o mr-2" style="font-size: 24px"></i>Offices</a>
+
+        <a mat-list-item style="color: #e7e7e7" routerLink="." class="ml-2"
+          ><i class="fa fa-question-circle mr-2" style="font-size: 24px"></i>Help</a
+        >
+
+        <!-- <a
           mat-list-item
-          style="color: #E7E7E7"
+          style="color: #e7e7e7"
           routerLink="."
           *ngFor="let nav of fillerNav"
           >{{ nav }}</a
-        >
+        > -->
       </mat-nav-list>
     </mat-sidenav>
 
