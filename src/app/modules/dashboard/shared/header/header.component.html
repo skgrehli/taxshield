@@ -1,0 +1,21 @@
+<div
+  class="page-header m-0 border"
+>
+  <!-- <h1>
+    <i class="fa fa-line-chart mr-2" style="font-size: 24px"></i> Marketing Report
+    <div class="btn btn-warning pull-right export"> Filter</div>
+    <div class="btn btn-warning pull-right export"> Export</div>
+    <div class="btn btn-warning pull-right export">clear Filter</div>
+  </h1> -->
+  <div class="row">
+      <div class="col-12 col-lg-3">
+        <h1>
+            <i class="fa mr-2" [ngClass]="logoName" style="font-size: 24px"></i> {{ headingName }}</h1>
+      </div>
+      <div class="col col-lg-9 text-right align-self-center">
+        <div *ngIf="isFilterVisible" class="btn btn-warning w-auto pull-right export" style="background-color: #ffab40;"><i class="fa fa-filter"></i></div>
+        <div *ngIf="isExportVisible" class="btn btn-warning w-auto pull-right export"> Export <i class="fa fa-caret-down"></i></div>
+        <div *ngIf="isClearFilterVisible" class="btn btn-warning w-auto pull-right export">clear Filter</div>
+      </div>
+  </div>
+</div>

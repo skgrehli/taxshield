@@ -4,11 +4,13 @@ import {
   OnDestroy,
   ChangeDetectorRef,
   ViewChild,
+  Inject,
 } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification/notification.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +19,9 @@ import { NotificationService } from 'src/app/services/notification/notification.
 })
 export class NavbarComponent implements OnInit {
   @ViewChild('snav') snav;
+
+  elem;
+  isFullscreen: boolean = false;
 
   mobileQuery: MediaQueryList;
 
@@ -39,17 +44,22 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     private notifyService: NotificationService,
     changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher
+    media: MediaMatcher,
+    @Inject(DOCUMENT) private document: any
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.elem = document.documentElement;
+  }
 
   ngAfterViewInit() {
-    this.snav.toggle();
+    if(!this.detectMob()){
+      this.snav.toggle();
+    }
   }
 
   ngOnDestroy(): void {
@@ -81,5 +91,37 @@ export class NavbarComponent implements OnInit {
     return toMatch.some((toMatchItem) => {
       return navigator.userAgent.match(toMatchItem);
     });
+  }
+
+  expandClicked() {
+    if (this.isFullscreen) {
+      if (this.document.exitFullscreen) {
+        this.document.exitFullscreen();
+      } else if (this.document.mozCancelFullScreen) {
+        /* Firefox */
+        this.document.mozCancelFullScreen();
+      } else if (this.document.webkitExitFullscreen) {
+        /* Chrome, Safari and Opera */
+        this.document.webkitExitFullscreen();
+      } else if (this.document.msExitFullscreen) {
+        /* IE/Edge */
+        this.document.msExitFullscreen();
+      }
+    } else {
+      // maximize
+      if (this.elem.requestFullscreen) {
+        this.elem.requestFullscreen();
+      } else if (this.elem.mozRequestFullScreen) {
+        /* Firefox */
+        this.elem.mozRequestFullScreen();
+      } else if (this.elem.webkitRequestFullscreen) {
+        /* Chrome, Safari and Opera */
+        this.elem.webkitRequestFullscreen();
+      } else if (this.elem.msRequestFullscreen) {
+        /* IE/Edge */
+        this.elem.msRequestFullscreen();
+      }
+    }
+    this.isFullscreen = !this.isFullscreen;
   }
 }

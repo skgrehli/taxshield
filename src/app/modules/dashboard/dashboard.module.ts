@@ -15,6 +15,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     NavbarComponent,
     SigplusSignComponent,
     OnboardingComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
