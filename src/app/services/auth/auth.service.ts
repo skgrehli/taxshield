@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 // AngularJs => authService.coffee
+
+const jwtHelperService= new JwtHelperService();
 
 export interface Credentials {
   // Customize received credentials here
   username: string;
   token: string;
+  userData: Object;
 }
 
 export interface LoginContext {
@@ -97,7 +101,16 @@ export class AuthService {
   private setCredentials(credentials?: Credentials, remember?: boolean) {
     this._credentials = credentials || null;
 
+    
     if (credentials) {
+
+      // decode token
+      let decoded = jwtHelperService.decodeToken(credentials.token);
+      credentials.userData = decoded
+      console.log('decoded', decoded);
+
+      this._credentials = credentials
+      
       const storage = remember ? localStorage : sessionStorage;
       storage.setItem(environment.credentialsKey, JSON.stringify(credentials));
       this.sendToken();
@@ -111,6 +124,7 @@ export class AuthService {
     const data = {
       username: context.username,
       token,
+      userData: {}
     };
     this.setCredentials(data, context.remember);
   }
@@ -119,6 +133,7 @@ export class AuthService {
     const data = {
       username: context.email,
       token,
+      userData: {}
     };
     this.setCredentials(data, context.remember);
   }
