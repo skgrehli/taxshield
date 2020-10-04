@@ -125,6 +125,10 @@ h1.example-app-name {
   font-size: 9px;
 }
 
+.f40 {
+  font-size: 40px;
+}
+
 .mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
   background: #474747;
 }
@@ -133,3 +137,9 @@ h1.example-app-name {
 ::ng-deep .mat-expansion-indicator:after {
   color: #66BB6A;
 }
+
+.user-name {
+  font-size: 16px;
+  line-height: 18px;
+}
+// .link_dropdown .dropdown-menu{ width: 100%; overflow: hidden;}
