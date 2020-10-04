@@ -6,13 +6,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 // AngularJs => authService.coffee
 
-const jwtHelperService= new JwtHelperService();
+const jwtHelperService = new JwtHelperService();
 
 export interface Credentials {
   // Customize received credentials here
   username: string;
   token: string;
-  userData: Object;
+  payload: Object;
 }
 
 export interface LoginContext {
@@ -101,16 +101,15 @@ export class AuthService {
   private setCredentials(credentials?: Credentials, remember?: boolean) {
     this._credentials = credentials || null;
 
-    
     if (credentials) {
-
       // decode token
-      let decoded = jwtHelperService.decodeToken(credentials.token);
-      credentials.userData = decoded
+      // let decoded = jwtHelperService.decodeToken(credentials.token);
+      let decoded = this.decodeTheToken(credentials.token);
+      credentials.payload = decoded;
       console.log('decoded', decoded);
 
-      this._credentials = credentials
-      
+      this._credentials = credentials;
+
       const storage = remember ? localStorage : sessionStorage;
       storage.setItem(environment.credentialsKey, JSON.stringify(credentials));
       this.sendToken();
@@ -120,11 +119,50 @@ export class AuthService {
     }
   }
 
+  decodeTheToken(token) {
+    let data = {};
+
+    let payload = jwtHelperService.decodeToken(token);
+    data = {
+      user: {
+        id: payload.id,
+        fullname: payload.fullname,
+        email: payload.email,
+        role: payload.role,
+        canPrintCheck: payload.canPrintCheck,
+        canReprintCheck: payload.canReprintCheck,
+        canVoid: payload.canVoid,
+        canPrintReport: payload.canPrintReport,
+        current_balance: payload.current_balance,
+        current_menual_balance: payload.current_menual_balance,
+        min_balance: payload.min_balance,
+        max_balance: payload.max_balance,
+        account_level: payload.account_level,
+        hasDisplayLinkPage: payload.has_display_link_page,
+        register_flow: payload.register_flow,
+        is_trial: payload.is_trial,
+        canSeeCallLog: payload.canSeeCallLog,
+        canSeeTextLog: payload.canSeeTextLog,
+        canSeeMarketingReport: payload.canSeeMarketingReport,
+        canSeeCustomerLead: payload.canSeeCustomerLead,
+        is_admin_trial: payload.is_admin_trial,
+      },
+      accountId: payload.accountId,
+      store: {
+        id: payload.storeId,
+        clUserId: payload.clUserId,
+        mid: payload.store_mid,
+      },
+    };
+
+    return data;
+  }
+
   loginSuccess(context, token) {
     const data = {
       username: context.username,
       token,
-      userData: {}
+      payload: {},
     };
     this.setCredentials(data, context.remember);
   }
@@ -133,7 +171,7 @@ export class AuthService {
     const data = {
       username: context.email,
       token,
-      userData: {}
+      payload: {},
     };
     this.setCredentials(data, context.remember);
   }
@@ -143,7 +181,7 @@ export class AuthService {
   }
 
   returnToken() {
-    if(this._credentials && this._credentials.token){
+    if (this._credentials && this._credentials.token) {
       return this._credentials.token;
     }
     return '';
